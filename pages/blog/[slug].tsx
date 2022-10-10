@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
+import path from "path";
 
 const BlogPage = ({ content, title }: any) => {
   return (
@@ -15,10 +16,10 @@ const BlogPage = ({ content, title }: any) => {
 // nodejs
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.params?.slug;
-  const filepath = `./content/blog/${slug}.md`;
+  // use path.join for windows compatibility
+  const filepath = path.join(process.cwd(), "content/blog", `${slug}.md`);
   const buffer = await fs.readFile(filepath);
-  const asString = buffer.toString();
-  const { content, data } = matter(asString);
+  const { content, data } = matter(buffer);
 
   return {
     props: {
