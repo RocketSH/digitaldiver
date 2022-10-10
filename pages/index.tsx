@@ -32,7 +32,7 @@ const Home: NextPage = ({ articles }: any) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const blogDir = path.join(process.cwd(), "content/blog");
   const articles = await fs.readdir(blogDir);
   const contents = await Promise.all(
