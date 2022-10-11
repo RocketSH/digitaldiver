@@ -1,14 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { GetServerSideProps } from "next";
 import styles from "../styles/Home.module.css";
-import path from "path";
-import fs from "fs/promises";
-import matter from "gray-matter";
 import Link from "next/link";
+import { getAllPostsData } from "@lib/blog";
+import { PostData } from "@interfaces";
 
-const Home: NextPage = ({ articles }: any) => {
+interface Props {
+  articles: PostData[]
+}
+
+const Home: NextPage<Props> = ({ articles }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,30 +22,24 @@ const Home: NextPage = ({ articles }: any) => {
       <main className={styles.main}>
         <h1 className={styles.title}>Menu</h1>
         {/* <pre>{JSON.stringify(articles, null, 2)}</pre> */}
-        <ul>{articles.map((article:any) => {
-          return <li key={article.slug}>
-            <Link href={`/blog/${article.slug}`} >
-              <a>{article.title}</a>
-            </Link>
-            </li>
-        })}</ul>
+        <ul>
+          {articles.map((article) => {
+            return (
+              <li key={article.slug}>
+                <Link href={`/blog/${article.slug}`}>
+                  <a>{article.title}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </main>
     </div>
   );
 };
 
 export const getStaticProps: GetServerSideProps = async (context) => {
-  const blogDir = path.join(process.cwd(), "content/blog");
-  const articles = await fs.readdir(blogDir);
-  const contents = await Promise.all(
-    articles.map(async (fileName) => {
-      const filepath = path.join(blogDir, fileName);
-      const buffer = await fs.readFile(filepath);
-      const { data } = matter(buffer);
-      return data;
-    })
-  );
-
+  const contents = await getAllPostsData();
   return {
     props: {
       articles: contents,

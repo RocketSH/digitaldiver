@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs/promises";
 import matter from "gray-matter";
+import { PostData } from "@interfaces";
 
 // expressions at the top level of a module are only executed once
 const blogDir = path.join(process.cwd(), "content/blog");
@@ -18,4 +19,14 @@ export const getPostData = async (slug: string) => {
   const filepath = path.join(blogDir, `${slug}.md`);
   const buffer = await fs.readFile(filepath);
   return matter(buffer);
+};
+
+export const getAllPostsData = async () => {
+  const slugs = await listAllSlugs();
+  return Promise.all(
+    slugs.map(async (slug) => {
+      const { data } = await getPostData(slug);
+      return data as PostData;
+    })
+  );
 };
