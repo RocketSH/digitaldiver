@@ -5,7 +5,6 @@ import { getPostData, listAllSlugs } from "@lib/blog";
 import { PostData } from "@interfaces";
 import { formatDate } from "@lib/dateHelpers";
 import Layout from "@layout";
-import Link from "next/link";
 
 interface Props {
   content: MDXRemoteSerializeResult<
@@ -18,7 +17,6 @@ interface Props {
 const BlogPage: NextPage<Props> = ({ content, metadata }) => {
   return (
     <Layout title={metadata.title}>
-      <Link href="/"><a>Back to homepage</a></Link>
       <h1>{metadata.title}</h1>
       <p>{formatDate(metadata.date)}</p>
       <section>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getAllPostsData } from "@lib/blog";
 import { PostData } from "@interfaces";
 import Layout from "@layout";
+import { formatDate } from "@lib/dateHelpers";
 
 interface Props {
   articles: PostData[]
@@ -16,12 +17,11 @@ const Home: NextPage<Props> = ({ articles }) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-        <h1>digitaldiver</h1>
         <ul>
           {articles.map((article) => {
             return (
               <li key={article.slug}>
+                {formatDate(article.date)}{" "}
                 <Link href={`/blog/${article.slug}`}>
                   <a>{article.title}</a>
                 </Link>
