@@ -1,19 +1,28 @@
-import { GetServerSideProps, GetStaticPaths } from "next";
-import { promises as fs } from "fs";
-import matter from "gray-matter";
-import path from "path";
-import { MDXRemote } from "next-mdx-remote";
+import { GetServerSideProps, GetStaticPaths, NextPage } from "next";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { processMarkdown } from "@lib/markdown";
 import { getPostData, listAllSlugs } from "@lib/blog";
+import { PostData } from "@interfaces";
+import { formatDate } from "@lib/dateHelpers";
+import Layout from "@layout";
 
-const BlogPage = ({ content, title }: any) => {
+interface Props {
+  content: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  metadata: PostData;
+}
+
+const BlogPage: NextPage<Props> = ({ content, metadata }) => {
   return (
-    <>
-      <h1>{title}</h1>
+    <Layout>
+      <h1>{metadata.title}</h1>
+      <p>{formatDate(metadata.date)}</p>
       <section>
         <MDXRemote {...content} />
       </section>
-    </>
+    </Layout>
   );
 };
 
@@ -39,9 +48,8 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   const mdxSource = await processMarkdown(content);
   return {
     props: {
-      slug: slug,
       content: mdxSource,
-      title: data.title,
+      metadata: data,
     },
   };
 };
