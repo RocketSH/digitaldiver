@@ -2,11 +2,9 @@ import { GetServerSideProps, GetStaticPaths } from "next";
 import { promises as fs } from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
-import rehypeHighlight from "rehype-highlight";
-import { lowlight } from "lowlight/lib/core.js";
-import sass from "highlight.js/lib/languages/scss";
+import { MDXRemote } from "next-mdx-remote";
+import { processMarkdown } from "@lib/markdown";
+import { getPostData, listAllSlugs } from "@lib/blog";
 
 const BlogPage = ({ content, title }: any) => {
   return (
@@ -20,33 +18,25 @@ const BlogPage = ({ content, title }: any) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const blogDir = path.join(process.cwd(), "content/blog");
-  const articles = await fs.readdir(blogDir);
+  const slugs = await listAllSlugs();
   return {
-    paths: articles.map(filename => {
+    paths: slugs.map((slug) => {
       return {
         params: {
-          slug: filename.replace(".md", "")
-        }
-      }
+          slug,
+        },
+      };
     }),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 // controller
 // nodejs
 export const getStaticProps: GetServerSideProps = async (context) => {
-  const slug = context.params?.slug;
-  // use path.join for windows compatibility
-  const filepath = path.join(process.cwd(), "content/blog", `${slug}.md`);
-  const buffer = await fs.readFile(filepath);
-  const { content, data } = matter(buffer)
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [rehypeHighlight]
-    }
-  })
+  const slug = context.params?.slug as string;
+  const { content, data } = await getPostData(slug);
+  const mdxSource = await processMarkdown(content);
   return {
     props: {
       slug: slug,
