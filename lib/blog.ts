@@ -23,10 +23,13 @@ export const getPostData = async (slug: string) => {
 
 export const getAllPostsData = async () => {
   const slugs = await listAllSlugs();
-  return Promise.all(
+  const posts = await Promise.all(
     slugs.map(async (slug) => {
       const { data } = await getPostData(slug);
       return data as PostData;
     })
   );
+  return posts.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date));
+  });
 };
