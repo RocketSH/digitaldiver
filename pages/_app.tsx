@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import 'highlight.js/scss/base16/chalk.scss'
 import type { AppProps } from 'next/app'
 

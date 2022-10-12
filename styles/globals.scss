@@ -1,0 +1,36 @@
+@import "_variables.sass";
+
+:root {
+  --body-bg: #{$bg-light};
+  --body-fg: #{$fg-light};
+  --primary: #{$primary-light};
+
+  @include dark {
+    --body-bg: #{$bg-dark};
+    --body-fg: #{$fg-dark};
+    --primary: #{$primary-dark};
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--body-bg);
+  color: var(--body-fg);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1,h2, h3, h4, h5, h6 {
+  color: var(--primary);
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
