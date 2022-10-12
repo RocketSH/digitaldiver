@@ -17,7 +17,8 @@
     "paths": {
       "@lib/*": ["./lib/*"],
       "@interfaces": ["./interfaces/index.ts"],
-      "@layout": ["./layout/index.tsx"]
+      "@layout": ["./layout/index.tsx"],
+      "@components": ["./components/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
