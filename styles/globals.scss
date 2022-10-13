@@ -5,11 +5,13 @@
   --body-bg: #{$bg-light};
   --body-fg: #{$fg-light};
   --primary: #{$primary-light};
+  --link-color: #{$link-color-light};
 
   @include dark {
     --body-bg: #{$bg-dark};
     --body-fg: #{$fg-dark};
     --primary: #{$primary-dark};
+    --link-color: #{$link-color-dark};
   }
 }
 
@@ -29,7 +31,7 @@ h1,h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
 }
 
 * {
