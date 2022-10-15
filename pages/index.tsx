@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import Link from "next/link";
 import { getAllPostsData } from "@lib/blog";
 import { PostData } from "@interfaces";
 import Layout from "@layout";
@@ -16,7 +15,7 @@ const Home: NextPage<Props> = ({ articles }) => {
   return (
     <Layout>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/outline_blue.svg"></link>
       </Head>
         {articles.map((article) => {
           return (
