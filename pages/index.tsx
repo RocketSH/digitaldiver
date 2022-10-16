@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { getAllPostsData } from "@lib/blog";
 import { PostData } from "@interfaces";
 import Layout from "@layout";
-import { formatDate } from "@lib/dateHelpers";
 import { BlogItem } from "@components"
 
 interface Props {
@@ -14,14 +12,11 @@ interface Props {
 const Home: NextPage<Props> = ({ articles }) => {
   return (
     <Layout>
-      <Head>
-        <link rel="icon" href="/outline_blue.svg"></link>
-      </Head>
-        {articles.map((article) => {
-          return (
-            <BlogItem key={article.slug} article={article} />
-          );
-        })}
+      {articles.map((article) => {
+        return (
+          <BlogItem key={article.slug} article={article} />
+        );
+      })}
     </Layout>
   );
 };

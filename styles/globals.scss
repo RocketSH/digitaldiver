@@ -6,12 +6,16 @@
   --body-fg: #{$fg-light};
   --primary: #{$primary-light};
   --link-color: #{$link-color-light};
+  --nav-border: #{$nav-border-light};
+  --hero-border: #{$hero-border-light};
 
   @include dark {
     --body-bg: #{$bg-dark};
     --body-fg: #{$fg-dark};
     --primary: #{$primary-dark};
     --link-color: #{$link-color-dark};
+    --nav-border: #{$nav-border-dark};
+    --hero-border: #{$hero-border-dark};
   }
 }
 
@@ -21,7 +25,7 @@ body {
   margin: 0;
   background: var(--body-bg);
   color: var(--body-fg);
-  font-family: $font-system;
+  font-family: $font-system, $zh-font;
 }
 
 h1,h2, h3, h4, h5, h6 {

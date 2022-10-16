@@ -1,0 +1,27 @@
+@import ../../styles/_variables
+
+.hero
+  // minus header and footer heights
+  min-height: calc(100vh - #{$header-height} * 2 - 2em )
+  width: 100%
+  display: flex
+
+.wrapper
+  border-width: 4px
+  border-style: solid
+  border-image: linear-gradient(to right, darkblue, darkorchid) 1
+  padding: 5em
+  text-align: center
+  margin: 0 auto
+  align-self: center
+  .title
+    // font-family: 'Kaushan Script', sans-serif
+    background: $gradient
+    font-size: 4rem
+    margin: 1rem 0 0
+    background-clip: text
+    -webkit-background-clip: text
+    color: rgba(0, 0, 0, .2)
+
+  .subtitle
+    color: whitesmoke

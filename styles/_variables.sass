@@ -2,23 +2,30 @@
 $font-custom: Nunito
 $font-system: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
 $header-font: $font-custom, $font-system
+$zh-font: '微軟正黑體', 'Microsoft JhengHei', '蘋果儷中黑', Tahoma , Verdana , Arial , sans-serif
 
 // TODO: set monospace font stack for code snippets
 
+$gradient: linear-gradient(180deg, #3ed1ff, #46cbff, #52c4ff, #60bdff, #6eb6ff, #78b1ff, #83abff, #90a5ff, #9b9fff, #a799ff, #b691ff, #c588ff)
 // light palette
 $primary-light: #de004e
 $bg-light: #fff
 $fg-light: #000
-$link-color-light: #666
+$link-color-light: darken(#c588ff, 20%)
+$nav-border-light: lighten(#191927, 50%)
+$hero-border-light: $gradient
 
 // dark palette
-// $primary-dark: rgb(200 66 158)
 $primary-dark: rgb(114 213 213)
-$bg-dark: rgb(0 37 45)
+$bg-dark: #191927
 $fg-dark: #fff
 $link-color-dark: rgb(255 124 231)
+$nav-border-dark: #fff
+$hero-border-dark: whitesmoke
 
 =dark
   @media (prefers-color-scheme: dark)
     @content
 
+$header-height: 1.5rem
+$footer-height: 1rem

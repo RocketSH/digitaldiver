@@ -3,7 +3,6 @@ import Link from "next/link";
 import { formatDate } from "@lib/dateHelpers";
 import { PostData } from "@interfaces";
 import styles from "./BlogItem.module.sass";
-import path from "path";
 
 interface Props {
   article: PostData;

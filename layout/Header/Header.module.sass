@@ -1,6 +1,15 @@
+@import ../../styles/_variables
+
 .header
   text-align: center
-  padding: 1.5rem 0 .5rem
+  padding: $header-height
+  border-bottom: .5px var(--nav-border) solid
 
   a
     text-decoration: none
+
+  h1
+    background: $gradient
+    background-clip: text
+    -webkit-background-clip: text
+    color: rgba(0, 0, 0, .2)
