@@ -7,20 +7,19 @@
   display: flex
 
 .wrapper
-  border-width: 2px
-  border-style: solid
+  border: 2px solid
   border-image: var(--hero-border)
-  padding: 5em
+  padding: 6em
   text-align: center
   margin: 0 auto
   align-self: center
   .title
-    background: $gradient-blue-pink
     font-size: 4rem
     margin: 1rem 0 0
+    background: $gradient-blue-pink
     background-clip: text
     -webkit-background-clip: text
     color: rgba(0, 0, 0, .2)
 
-  .subtitle
+  p, .subtitle
     color: var(--hero-subtitle)

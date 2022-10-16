@@ -4,17 +4,38 @@
   z-index: 10
   top: -10px
   text-align: center
-  padding: $header-height
   border-bottom: .5px var(--nav-border) solid
   position: sticky
-  &:hover
-    box-shadow: var(--box-shadow)
+  display: flex
+  justify-content: space-between
 
   a
     text-decoration: none
+    margin: 0 1rem
 
   h1
     background: $gradient-blue-pink
     background-clip: text
     -webkit-background-clip: text
     color: rgba(0, 0, 0, .2)
+
+  .nav
+    line-height: $header-height
+    display: flex
+    align-self: center
+    a
+      padding: .4em
+      margin: 0 .4rem
+      line-height: 3rem
+      font-family: $font-custom, $font-system
+      font-weight: 600
+      font-size: 1.15rem
+
+  .items
+    opacity: .7
+    padding: $header-height $header-height/2.5
+    &:hover
+      opacity: 1
+      text-decoration: underline
+
+
