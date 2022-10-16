@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./Header.module.sass";
+import clsx from "clsx";
 
 const Header: React.FC = () => {
   return (
@@ -21,7 +22,9 @@ const Header: React.FC = () => {
         <Link href="/contact">Contact</Link>
         </li>
         <li className={styles.items}>
-        <Link href="/resume.pdf">Resume</Link>
+        <Link href="/resume.pdf"><a className={clsx("button")} target="_blank">Resume</a>
+        </Link>
+
         </li>
       </div>
     </header>
