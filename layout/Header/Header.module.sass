@@ -8,6 +8,7 @@
   position: sticky
   display: flex
   justify-content: space-between
+  list-style: none
 
   a
     text-decoration: none
@@ -23,19 +24,18 @@
     line-height: $header-height
     display: flex
     align-self: center
-    a
-      padding: .4em
-      margin: 0 .4rem
-      line-height: 3rem
-      font-family: $font-custom, $font-system
-      font-weight: 600
-      font-size: 1.15rem
+    font-family: $font-custom, $font-system
+    font-weight: 600
+    font-size: 1.15rem
 
-  .items
-    opacity: .7
-    padding: $header-height*.8 $header-height/2.5
-    &:hover
-      opacity: 1
-      text-decoration: underline
+    .items
+      opacity: .7
+      padding: $header-height*.8 $header-height/2.5
+      &:hover
+        opacity: 1
+        text-decoration: underline
 
-
+      a
+        padding: .4em
+        margin: 0 .4rem
+        line-height: 3rem

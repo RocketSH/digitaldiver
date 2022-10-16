@@ -11,11 +11,13 @@ interface Props {
 }
 
 const PAGE_TITLE = "digitaldiver.me";
+const description = `Shuhan Hu's Web development learning blog.`;
 
 const Layout: React.FC<Props> = ({ title, children }) => {
   return (
     <div className={styles.root}>
       <Head>
+        <meta name="description" content={description} />
         <link rel="icon" href="/outline_blue.svg"></link>
         <title>{title ? `${title} | ${PAGE_TITLE}` : PAGE_TITLE}</title>
       </Head>

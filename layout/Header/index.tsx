@@ -11,18 +11,18 @@ const Header: React.FC = () => {
         </a>
       </Link>
       <div className={styles.nav}>
-        <div className={styles.items}>
+        <li className={styles.items}>
         <Link href="/">Home</Link>
-        </div>
-        <div className={styles.items}>
+        </li>
+        <li className={styles.items}>
         <Link href="/blog">Blog</Link>
-        </div>
-        <div className={styles.items}>
+        </li>
+        <li className={styles.items}>
         <Link href="/contact">Contact</Link>
-        </div>
-        <div className={styles.items}>
-        <Link href="/resume.pdf" className={styles.resume}>Resume</Link>
-        </div>
+        </li>
+        <li className={styles.items}>
+        <Link href="/resume.pdf">Resume</Link>
+        </li>
       </div>
     </header>
   );
