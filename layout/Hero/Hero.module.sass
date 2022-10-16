@@ -7,16 +7,15 @@
   display: flex
 
 .wrapper
-  border-width: 4px
+  border-width: 2px
   border-style: solid
-  border-image: linear-gradient(to right, darkblue, darkorchid) 1
+  border-image: var(--hero-border)
   padding: 5em
   text-align: center
   margin: 0 auto
   align-self: center
   .title
-    // font-family: 'Kaushan Script', sans-serif
-    background: $gradient
+    background: $gradient-blue-pink
     font-size: 4rem
     margin: 1rem 0 0
     background-clip: text
@@ -24,4 +23,4 @@
     color: rgba(0, 0, 0, .2)
 
   .subtitle
-    color: whitesmoke
+    color: var(--hero-subtitle)

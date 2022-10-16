@@ -1,15 +1,20 @@
 @import ../../styles/_variables
 
 .header
+  z-index: 10
+  top: -10px
   text-align: center
   padding: $header-height
   border-bottom: .5px var(--nav-border) solid
+  position: sticky
+  &:hover
+    box-shadow: var(--box-shadow)
 
   a
     text-decoration: none
 
   h1
-    background: $gradient
+    background: $gradient-blue-pink
     background-clip: text
     -webkit-background-clip: text
     color: rgba(0, 0, 0, .2)

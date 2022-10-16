@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&family=Noto+Serif+TC:wght@400&display=swap');
 @import "_variables.sass";
 
 :root {
@@ -8,6 +9,8 @@
   --link-color: #{$link-color-light};
   --nav-border: #{$nav-border-light};
   --hero-border: #{$hero-border-light};
+  --hero-subtitle: #{$hero-subtitle-light};
+  --box-shadow: #{$box-shadow-light};
 
   @include dark {
     --body-bg: #{$bg-dark};
@@ -16,6 +19,8 @@
     --link-color: #{$link-color-dark};
     --nav-border: #{$nav-border-dark};
     --hero-border: #{$hero-border-dark};
+    --hero-subtitle: #{$hero-subtitle-dark};
+    --box-shadow: #{$box-shadow-dark};
   }
 }
 
@@ -25,7 +30,7 @@ body {
   margin: 0;
   background: var(--body-bg);
   color: var(--body-fg);
-  font-family: $font-system, $zh-font;
+  font-family: $font-system;
 }
 
 h1,h2, h3, h4, h5, h6 {
