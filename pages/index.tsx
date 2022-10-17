@@ -1,32 +1,13 @@
 import type { NextPage } from "next";
-import { GetServerSideProps } from "next";
-import { getAllPostsData } from "@lib/blog";
-import { PostData } from "@interfaces";
 import Layout from "@layout";
-import { BlogItem } from "@components"
+import Hero from "../layout/Hero";
 
-interface Props {
-  articles: PostData[];
-}
-
-const Home: NextPage<Props> = ({ articles }) => {
+const Home = () => {
   return (
     <Layout>
-      {articles.map((article) => {
-        return (
-          <BlogItem key={article.slug} article={article} />
-        );
-      })}
+      <Hero />
     </Layout>
   );
 };
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  const contents = await getAllPostsData();
-  return {
-    props: {
-      articles: contents,
-    },
-  };
-};
 export default Home;

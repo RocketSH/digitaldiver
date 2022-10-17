@@ -2,14 +2,15 @@
 
 .hero
   display: flex
+  height: calc( 75vh - ($header-height * 2) - ($footer-height * 2) )
+  align-items: center
+  justify-content: center
 
 .wrapper
-  border: 2px solid
+  border: 1.5px solid
   border-image: var(--hero-border)
   padding: 4em 6em 6em
   text-align: center
-  margin: 0 auto
-  align-self: center
   .title
     font-size: 4rem
     margin: 1rem 0 0

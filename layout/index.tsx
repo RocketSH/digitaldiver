@@ -2,18 +2,18 @@ import Head from "next/head";
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import Hero from "./Hero";
 import styles from "./Layout.module.sass";
 
 interface Props {
   children: React.ReactNode;
   title?: string;
+  pageHeader?: string;
 }
 
 const PAGE_TITLE = "digitaldiver.me";
 const description = `Shuhan Hu's Web development learning blog.`;
 
-const Layout: React.FC<Props> = ({ title, children }) => {
+const Layout: React.FC<Props> = ({ title, children, pageHeader }) => {
   return (
     <div className={styles.root}>
       <Head>
@@ -22,8 +22,10 @@ const Layout: React.FC<Props> = ({ title, children }) => {
         <title>{title ? `${title} | ${PAGE_TITLE}` : PAGE_TITLE}</title>
       </Head>
       <Header />
-      <Hero />
-      <main>{children}</main>
+      <main>
+        <h1 className={styles.pageHeader}>{pageHeader}</h1>
+        {children}
+      </main>
       <Footer />
     </div>
   );
