@@ -12,20 +12,18 @@ const Header: React.FC = () => {
         </a>
       </Link>
       <div className={styles.nav}>
-        <li className={styles.items}>
-        <Link href="/">Home</Link>
-        </li>
-        <li className={styles.items}>
-        <Link href="/blog">Blog</Link>
-        </li>
-        <li className={styles.items}>
-        <Link href="/contact">Contact</Link>
-        </li>
-        <li className={styles.items}>
-        <Link href="/resume.pdf"><a className={clsx("button")} target="_blank">Resume</a>
+        <Link href="/">
+          <a>Home</a>
         </Link>
-
-        </li>
+        <Link href="/blog">
+          <a>Blog</a>
+        </Link>
+        <Link href="/contact">
+          <a>Contact</a>
+        </Link>
+        <a href="/resume.pdf" className={clsx(styles.button)} target="_blank">
+          <span>Resume</span>
+        </a>
       </div>
     </header>
   );
